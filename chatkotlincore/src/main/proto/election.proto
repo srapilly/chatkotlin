@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.github.simonrply.service";
+option java_outer_classname = "ElectionProto";
+
+service ElectionService {
+    rpc startElection(ElectionMessage) returns (Nothing) {}
+    rpc sendElected(ElectedMessage) returns (Nothing) {}
+
+}
+
+message ElectionMessage {
+    int32 uid = 1;
+}
+
+message ElectedMessage {
+    int32 ip = 1;
+    int32 port = 2;
+}
+
+message Nothing {
+
+}

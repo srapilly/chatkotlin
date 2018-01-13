@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/chatkotlin.iml" filepath="$PROJECT_DIR$/chatkotlin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chatkotlincli/chatkotlincli.iml" filepath="$PROJECT_DIR$/chatkotlincli/chatkotlincli.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chatkotlincore/chatkotlincore.iml" filepath="$PROJECT_DIR$/chatkotlincore/chatkotlincore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chatkotlingui/chatkotlingui.iml" filepath="$PROJECT_DIR$/chatkotlingui/chatkotlingui.iml" />
+    </modules>
+  </component>
+</project>

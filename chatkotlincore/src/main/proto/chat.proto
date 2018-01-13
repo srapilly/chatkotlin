@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.github.simonrply.service";
+option java_outer_classname = "ChatProto";
+
+service ChatService {
+    rpc sendChatToLeader(Message) returns (MessageResponse) {}
+    rpc sendChatToAll(MessageTimeStamp) returns (MessageResponse) {}
+}
+
+message Message {
+    string name = 1;
+    string data = 2;
+}
+message MessageTimeStamp {
+    Message message = 1;
+    sint64 timestamp = 2;
+}
+
+message MessageResponse {
+
+}

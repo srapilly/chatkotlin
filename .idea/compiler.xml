@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="chatkotlincli" />
+        <module name="chatkotlincore" />
+        <module name="chatkotlingui" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="chatkotlin" target="1.8" />
+      <module name="chatkotlincli" target="1.8" />
+      <module name="chatkotlincore" target="1.8" />
+      <module name="chatkotlingui" target="1.8" />
+      <module name="chatkotlinparent" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

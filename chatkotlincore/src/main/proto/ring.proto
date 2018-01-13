@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.github.simonrply.service";
+option java_outer_classname = "RingProto";
+
+service RingService {
+    rpc joinRing(IdentifierMessage) returns (JoinRingResponse) {}
+
+    rpc LeftRing(LeavingMessage) returns (LeftRingResponse) {}
+}
+
+message IdentifierMessage {
+    int32 ip = 1;
+    int32 port = 2;
+}
+
+message LeavingMessage {
+    IdentifierMessage leaving = 1;
+    IdentifierMessage following = 2;
+    bool wasLeader = 3;
+}
+
+message JoinRingResponse {
+    IdentifierMessage toJoin = 1;
+    IdentifierMessage leader = 2;
+}
+
+message LeftRingResponse {
+
+}
