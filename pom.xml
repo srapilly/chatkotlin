@@ -64,6 +64,11 @@
                 <version>${guava.version}</version>
             </dependency>
             <dependency>
+                <groupId>no.tornado</groupId>
+                <artifactId>tornadofx</artifactId>
+                <version>1.7.14</version>
+            </dependency>
+            <dependency>
                 <groupId>io.github.microutils</groupId>
                 <artifactId>kotlin-logging</artifactId>
                 <version>1.4.9</version>

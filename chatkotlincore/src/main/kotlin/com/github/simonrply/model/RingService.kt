@@ -30,7 +30,6 @@ class RingService(private val node: Node): RingServiceGrpc.RingServiceImplBase()
         val nodeLeaving = Identifier.fromInteger(request.leaving.ip, request.leaving.port)
 
         if (node.nextUID == nodeLeaving) {
-            //Change UID
             logger.info { "Node leaving his our next node : $nodeLeaving " }
             node.changeNextUID(request.following.ip, request.following.port)
             if (request.wasLeader) {
@@ -43,7 +42,6 @@ class RingService(private val node: Node): RingServiceGrpc.RingServiceImplBase()
             logger.info { "Broadcast leave request from : $nodeLeaving" }
             stub.leftRing(request)
         }
-        //Empty response
         responseObserver.onNext(LeftRingResponse.getDefaultInstance())
         responseObserver.onCompleted()
     }

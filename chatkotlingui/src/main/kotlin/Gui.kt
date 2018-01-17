@@ -1,23 +1,12 @@
-import com.github.simonrply.model.ChatMessage
 import com.github.simonrply.model.Identifier
 import com.github.simonrply.model.Node
 import com.google.common.net.InetAddresses
 import javafx.application.Application
-import javafx.application.Platform
-import javafx.collections.FXCollections
-import javafx.collections.ObservableList
-import javafx.scene.Parent
 import javafx.scene.control.TextField
-import javafx.scene.layout.VBox
 import tornadofx.*
-import java.util.*
 import kotlin.system.exitProcess
 
-class MyApp: App(MyView::class) {
-
-}
-
-class MyView: View() {
+class LaunchView : View() {
     val ip = InetAddresses.forString("127.0.0.1")
     var pseudo: TextField by singleAssign()
     var port: TextField by singleAssign()
@@ -25,35 +14,39 @@ class MyView: View() {
 
     override val root = vbox {
         hbox {
-            label("pseudo")
+            label("Pseudo")
             pseudo = textfield()
         }
         hbox {
-            label("port")
+            label("Port")
             port = textfield()
         }
         hbox {
-            label("port to join (0 for first node")
+            label("Port to join (0 for first node)")
             toJoin = textfield()
         }
-        button("LOGIN") {
+        button("Login") {
             useMaxWidth = true
             action {
-                val node: Node
-
-                if (toJoin.text.toInt() != 0) {
-                    node = Node.fromNode(pseudo.text, Identifier(ip, port.text.toInt()),Identifier(ip, toJoin.text.toInt()), true)
+                val node = if (toJoin.text.toInt() != 0) {
+                    Node.fromNode(
+                            pseudo.text,
+                            Identifier(ip, port.text.toInt()),
+                            Identifier(ip, toJoin.text.toInt()),
+                            true)
+                } else {
+                    Node.createFirstNode(
+                            pseudo.text,
+                            Identifier(ip, port.text.toInt()),
+                            true)
                 }
-                else {
-                    node = Node.createFirstNode(pseudo.text, Identifier(ip, port.text.toInt()), true)
-                }
-                replaceWith(OtherView(node))
+                replaceWith(ChatView(node))
             }
         }
     }
 }
 
-class OtherView(val node: Node) : View() {
+class ChatView(val node: Node) : View() {
     override val root = vbox {
         vbox {
             listview(node.messages) {
@@ -84,7 +77,11 @@ class OtherView(val node: Node) : View() {
     }
 }
 
+class ChatApp : App(LaunchView::class)
+
+
 fun main(args: Array<String>) {
-    Application.launch(MyApp::class.java, *args)
+    Application.launch(ChatApp::class.java, *args)
+
 }
 
