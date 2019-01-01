@@ -1,5 +1,7 @@
 # chat-kotlin
 
+Made for a project during my exchange at the Czech Technical University in Prague
+
 ## Project spec
 
 Techonlogies used :
@@ -53,7 +55,6 @@ The first node of the ring is by default the leader. If the leader left the ring
 ### Message
 
 Each message is send to the leader, then the leader send the message to each node and the timestamp providing full ordering.
-
 
 ## Missing requirements
 
